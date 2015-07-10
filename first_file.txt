@@ -1,1 +1,3 @@
-This is the first file that I added to the project.
+This is the first file that I added to the project in the git.
+
+It comes before all other files.
