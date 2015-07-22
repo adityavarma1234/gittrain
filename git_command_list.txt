@@ -1,50 +1,60 @@
+Global Config
+
 git config --global user.name "Aditya Varma"
 git config --global user.email user.email "aditya.varma@zoomcar.com"
 git config --global core.editor editor "sublime -wl1"
 git config --global color.ui color.ui true
+git config --global core.excludesfile ~/.gitignore_global 
+
+Auto Complete
+
 curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
-git help log
+
+Initialize
 git init
 git add . 
-git log
-git log -n 2
-git log --since=2015-06-01
-git log --until=2015-06-01
-git log --author="Aditya"
-git log --grep="Init" 
-git diff
-git diff third_file.txt
-git diff --staged
-git diff --cached
-git diff --color-words contact.html
-git commit -am "change 24hr support number" 
+git commit -am "Initialize repository" 
+
+
 git checkout --(says that stay on current branch, use it if not moving to another branch) index.html
 Unstage changes git reset HEAD resources.html
 git commit --amend (ammends to the last commit)
-git checkout shavalue -- filename
+git checkout <SHA-VALUE> -- filename
 git reset HEAD resources.html (Go look at the last commit and reset yourself to be the same as what that has very similar to checkout)
 git revert <SHA-VALUE> (Reverts changes made in a commit)
 
 
 git reset 
   soft
+       git reset --soft <SHA_VALUE>
       does not change staging index or working directory
   mixed (default)
+      git reset --mixed <SHA_VALUE>
       changes staging index to match repository
       does not change working directory
   hard
+      git reset --hard <SHA_VALUE>
       changes stagind index and working directory to match repository
-git reset --soft <SHA_VALUE>
-git reset --mixed <SHA_VALUE>
-git reset --hard <SHA_VALUE>
+
+
+
 git clean -n
-git config --global core.excludesfile ~/.gitignore_global
 
 git is used for file tracking. If we want to add an empty directory then place an empty file .gitkeep to indicate the presence of that file as git status will not prompt any change. 
 
 git ls-tree master
 git ls-tree master assets/
 Blob is a file and tree is a file directory
+
+Log
+
+git help log
+git log
+git log -n 2
+git log --since=2015-06-01
+git log --until=2015-06-01
+git log --author="Aditya"
+git log --grep="Init" 
 git log --oneline
 git log --oneline -3
 git log --since="2 weeks ago" --until ="3days ago"
@@ -54,13 +64,54 @@ git log -p (git log patch)
 git log --stat --summary
 git log --format=oneline
 git log --oneline --graph --all --decorate
+
+Show
+
 git show <SHA_VALUE> (shows details of a commit)
 
+Diff
 
+git diff
+git diff third_file.txt
+git diff --staged
+git diff --cached
+git diff --color-words contact.html
 git diff <SHA-VALUE> (Give diff between current directory and a particular commit)
 git diff <SHA_VALUE> <PARTICULAR_FILE> (Diff between current file and file at a particular commit in time.)
 git diff <SHA_VALUE>..<SHA_VALUE> (Give diff between two particular commits)
 git diff --ignore-space-change <SHA_VALUE>..HEAD or git diff -b <SHA_VALUE>..HEAD
 git diff --ignore-all-space <SHA_VALUE>..HEAD or git diff -w <SHA_VALUE>..HEAD
+git diff <BRANCH>..<BRANCH> (difference between tips of both branches)
 
+Branch 
 
+git branch (list all the branches)
+git branch -r (list all remote branches)
+git branch -a (list remote and local branches)
+git branch new_feature (creates a new branch with name new_feature)
+git checkout new_feature (Switch to branch new_feature)
+git checkout -b <BRANCH_NAME> (Create branch and switch to it.)
+If we have unsaved changes in a branch, we need to stash changes or checkout that file or commit the file to switch to another branch. 
+If we have untracked files then we can switch between branches.
+git branch --merged (Gives list of all the branches present in current branch)
+git branch -m <OLD_BRANCH> <NEW_BRANCH>  (rename a branch)
+git branch -d <BRANCH_TO_DELETE> (Delete a branch with changes that are merged)
+git branch -D <BRANCH_TO_DELTE> (Delete a branch with changes that are not merged)
+git merge <BRANCH> (Merges BRANCH to current branch)
+git merge --abort (To abort a merge after a conflict.)
+
+Stash
+
+git stash save “<message>” 
+git stash list (list all the elements in stash)
+git stash show -p stash@{0}
+git stash pop stash@{0}(Remove from stash and apply)
+git stash apply (Pull from stash and apply, leaves in stash)
+git stash drop stash@{0} (Delete a particular element from a stash)
+git stash clear (Clear everything in stash)
+ 
+
+git fetch origin (Fetches change in repository to local at origin/masters)
+fetch before you work
+fetch before you push
+fetch often
