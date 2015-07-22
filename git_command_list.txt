@@ -1,0 +1,66 @@
+git config --global user.name "Aditya Varma"
+git config --global user.email user.email "aditya.varma@zoomcar.com"
+git config --global core.editor editor "sublime -wl1"
+git config --global color.ui color.ui true
+curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
+git help log
+git init
+git add . 
+git log
+git log -n 2
+git log --since=2015-06-01
+git log --until=2015-06-01
+git log --author="Aditya"
+git log --grep="Init" 
+git diff
+git diff third_file.txt
+git diff --staged
+git diff --cached
+git diff --color-words contact.html
+git commit -am "change 24hr support number" 
+git checkout --(says that stay on current branch, use it if not moving to another branch) index.html
+Unstage changes git reset HEAD resources.html
+git commit --amend (ammends to the last commit)
+git checkout shavalue -- filename
+git reset HEAD resources.html (Go look at the last commit and reset yourself to be the same as what that has very similar to checkout)
+git revert <SHA-VALUE> (Reverts changes made in a commit)
+
+
+git reset 
+  soft
+      does not change staging index or working directory
+  mixed (default)
+      changes staging index to match repository
+      does not change working directory
+  hard
+      changes stagind index and working directory to match repository
+git reset --soft <SHA_VALUE>
+git reset --mixed <SHA_VALUE>
+git reset --hard <SHA_VALUE>
+git clean -n
+git config --global core.excludesfile ~/.gitignore_global
+
+git is used for file tracking. If we want to add an empty directory then place an empty file .gitkeep to indicate the presence of that file as git status will not prompt any change. 
+
+git ls-tree master
+git ls-tree master assets/
+Blob is a file and tree is a file directory
+git log --oneline
+git log --oneline -3
+git log --since="2 weeks ago" --until ="3days ago"
+git log --since=2.weeks --until =3.days
+git log <SHA_VALUE>.. index.html (Give me the commits in this particular commit that effect index.html file.)
+git log -p (git log patch)
+git log --stat --summary
+git log --format=oneline
+git log --oneline --graph --all --decorate
+git show <SHA_VALUE> (shows details of a commit)
+
+
+git diff <SHA-VALUE> (Give diff between current directory and a particular commit)
+git diff <SHA_VALUE> <PARTICULAR_FILE> (Diff between current file and file at a particular commit in time.)
+git diff <SHA_VALUE>..<SHA_VALUE> (Give diff between two particular commits)
+git diff --ignore-space-change <SHA_VALUE>..HEAD or git diff -b <SHA_VALUE>..HEAD
+git diff --ignore-all-space <SHA_VALUE>..HEAD or git diff -w <SHA_VALUE>..HEAD
+
+
